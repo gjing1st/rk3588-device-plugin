@@ -1,0 +1,29 @@
+# 验证 Pod: 确认 NPU 设备资源可用
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-rk3588-npu
+spec:
+  restartPolicy: Never
+  containers:
+    - name: test
+      image: busybox:1.36
+      command:
+        - sh
+        - -c
+        - |
+          echo "=== NPU 设备检查 ==="
+          ls -la /dev/dri/renderD* 2>/dev/null || echo "No /dev/dri/renderD* found"
+          echo ""
+          echo "=== 环境变量 ==="
+          env | grep -i rknn || echo "No RKNN env vars"
+          echo ""
+          echo "=== 库文件 ==="
+          ls -la /usr/lib/librknnrt.so 2>/dev/null || echo "librknnrt.so not found"
+          echo ""
+          sleep 10
+      resources:
+        limits:
+          rk3588.ai/npu: "1"
+        requests:
+          rk3588.ai/npu: "1"

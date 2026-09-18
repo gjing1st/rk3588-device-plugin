@@ -1,0 +1,26 @@
+# ---- 编译产物 ----
+/rk3588-device-plugin
+/rk3588-device-plugin-*
+*.exe
+Dockerfile.local
+
+# ---- 离线打包产物（建议改用 GitHub Releases 分发）----
+*.tar.gz
+*.tgz
+
+# ---- 编辑器 / IDE ----
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ---- 本地工具目录（不含源码/文档，不入库）----
+.workbuddy/
+
+# ---- 系统文件 ----
+.DS_Store
+Thumbs.db
+
+# ---- 日志 ----
+*.log

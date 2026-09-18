@@ -1,0 +1,32 @@
+# 业务 Deployment 使用 NPU 的示例
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rknn-inference-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rknn-inference
+  template:
+    metadata:
+      labels:
+        app: rknn-inference
+    spec:
+      # 业务 Pod 不需要再写 nodeAffinity — 调度器会自动看 NPU 资源
+      containers:
+        - name: infer
+          image: your-rknn-app:latest
+          # 注意: 容器镜像内需要自带 librknnrt.so 或者在
+          # 镜像构建时 COPY 宿主机的 /usr/lib/librknnrt.so
+          resources:
+            limits:
+              rk3588.ai/npu: "1"
+            requests:
+              rk3588.ai/npu: "1"
+          env:
+            # device plugin 自动注入 RKNN_NPU_DEVICE, RKNN_NPU_ENABLE 等
+            - name: RKNN_LOG_LEVEL
+              value: "1"
+          # 如果你的推理代码需要直接打开 render 节点 (非 librknnrt 方式):
+          # 设备文件路径会通过 RKNN_NPU_DEVICE 环境变量自动注入

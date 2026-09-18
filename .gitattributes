@@ -1,0 +1,15 @@
+# 统一换行符为 LF。
+# 关键原因：deploy/build-on-node.sh 要在 Linux（麒麟 V10 / openEuler）节点上执行，
+# 若以 CRLF 入库，目标机器会报 "bad interpreter: /bin/bash^M" 直接执行失败。
+* text=auto eol=lf
+
+# 显式声明脚本类文件（不依赖 auto 的内容探测）
+*.sh       text eol=lf
+Dockerfile text eol=lf
+
+# 二进制文件不做换行符转换
+*.gz   binary
+*.tgz  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
