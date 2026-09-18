@@ -8,6 +8,8 @@
 [![Go](https://img.shields.io/badge/Go-1.20%2B-00ADD8.svg)](go.mod)
 [![Arch](https://img.shields.io/badge/Arch-aarch64-orange.svg)](#环境要求--requirements)
 [![K8s](https://img.shields.io/badge/Kubernetes-Device%20Plugin-326CE5.svg)](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/device-plugins/)
+[![Resource](https://img.shields.io/badge/resource-rk3588.ai%2Fnpu-56ab2f.svg)](#1-这是什么--what-is-this)
+[![OS](https://img.shields.io/badge/OS-Kylin%20V10%20%7C%20openEuler-8B5CF6.svg)](#4-环境要求--requirements)
 
 > 瑞芯微官方（`airockchip`）至今**没有提供**任何 Kubernetes Device Plugin。本项目是为了填补这个空白而写的一个最小、可读、可维护的实现，已在 **麒麟 V10 国防版 / openEuler + Kubernetes 异构集群**中完成落地验证。
 
@@ -221,6 +223,10 @@ kubectl logs test-rk3588-npu
 ```
 
 预期能在容器内看到 `/dev/dri/renderD129`，且环境变量包含 `RKNN_NPU_DEVICE`。
+
+> **如果这个项目帮你省下了排查时间，欢迎在 [GitHub](https://github.com/gjing1st/rk3588-device-plugin) 点一个 Star** —— 这是对作者最直接的反馈，也能帮更多遇到同样问题的人找到它。
+>
+> **If this project saved you some debugging time, a star on [GitHub](https://github.com/gjing1st/rk3588-device-plugin) is the most direct way to say thanks** — and it helps others facing the same problem find it.
 
 ---
 
@@ -451,7 +457,7 @@ kubelet API v0.27+ 强制要求实现该方法。本项目已提供空实现，�
 
 - 《异构算力实战：RK3588 + 昇腾 310B 部署 K8s + KubeSphere 并实现 NPU 统一调度》—— 本项目对应的完整实战记录（含昇腾 310B 源码级适配）
   公众号「编码如写诗」：<https://mp.weixin.qq.com/s/eC7ou5RItM8Y5wVOfBbGIQ>
-- 博客园：<https://cnblogs.com/tx1st>
+- 个人博客：<https://tx1st.cn/>
 
 ---
 
