@@ -450,8 +450,8 @@ kubelet API v0.27+ 强制要求实现该方法。本项目已提供空实现，�
 ## 12. 相关文章 / Related Reading
 
 - 《异构算力实战：RK3588 + 昇腾 310B 部署 K8s + KubeSphere 并实现 NPU 统一调度》—— 本项目对应的完整实战记录（含昇腾 310B 源码级适配）
-  思否：<https://segmentfault.com/a/1190000048113702>
-- 公众号：编码如写诗 ｜ 博客园：<https://cnblogs.com/tx1st>
+  公众号「编码如写诗」：<https://mp.weixin.qq.com/s/eC7ou5RItM8Y5wVOfBbGIQ>
+- 博客园：<https://cnblogs.com/tx1st>
 
 ---
 
